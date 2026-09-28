@@ -1,0 +1,82 @@
+.chart-container {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.chart-container h3 {
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+/* Added for responsive container stability */
+.chart-wrapper {
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  position: relative;
+}
+
+
+
+/* ===== Tablets & small laptops ===== */
+@media (max-width: 1024px) {
+  .chart-container {
+    padding: 18px;
+  }
+
+  .chart-wrapper {
+    height: 280px;
+    min-height: 280px;
+  }
+}
+
+/* ===== Tablets (portrait) ===== */
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 16px;
+  }
+
+  .chart-container h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .chart-wrapper {
+    height: 250px;
+    min-height: 250px;
+  }
+}
+
+/* ===== Mobile phones ===== */
+@media (max-width: 480px) {
+  .chart-container {
+    padding: 14px 10px;
+  }
+
+  .chart-container h3 {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .chart-wrapper {
+    height: 220px;
+    min-height: 220px;
+  }
+}
+
+/* ===== Very small phones ===== */
+@media (max-width: 360px) {
+  .chart-wrapper {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .chart-container {
+    padding: 12px 8px;
+  }
+}

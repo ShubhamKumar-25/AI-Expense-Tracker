@@ -1,0 +1,294 @@
+.navbar {
+  background: var(--bg-card, #1e293b);
+  padding: 1rem 0;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-muted, #94a3b8);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #6366f1;
+}
+
+.btn-upgrade {
+  background: #6366f1;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-upgrade:hover {
+  background: #4f46e5;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-login {
+  color: #f8fafc !important;
+  border: 1px solid #475569;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: #334155;
+}
+
+.btn-signup {
+  background: #10b981;
+  color: white !important;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-signup:hover {
+  background: #059669;
+}
+
+.user-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-badge {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #334155;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.btn-logout:hover {
+  background: #dc2626;
+}
+
+/* ---------- Hamburger Button (hidden on desktop) ---------- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.nav-toggle-bar {
+  width: 100%;
+  height: 2.5px;
+  background: #f8fafc;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger -> Cross animation jab menu open ho */
+.nav-toggle.active .nav-toggle-bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.nav-toggle.active .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ---------- Tablets & small laptops ---------- */
+@media (max-width: 1024px) {
+  .nav-content {
+    padding: 0 16px;
+  }
+
+  .nav-links {
+    gap: 1.1rem;
+  }
+}
+
+/* ---------- Tablets (portrait) ---------- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 0;
+  }
+
+  .logo-circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-links {
+    gap: 0.9rem;
+  }
+
+  .nav-links li a {
+    font-size: 0.9rem;
+  }
+
+  .btn-upgrade {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------- Mobile phones: Hamburger menu activate ---------- */
+@media (max-width: 640px) {
+  .nav-content {
+    padding: 0 12px;
+  }
+
+  /* Hamburger button dikhao */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Nav links ko dropdown panel bana do */
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    background: var(--bg-card, #1e293b);
+    border-bottom: 1px solid #334155;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 16px 16px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  }
+
+  .nav-links-open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 16px;
+    box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links li {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #334155;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .btn-upgrade {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .btn-login,
+  .btn-signup {
+    text-align: center;
+    padding: 10px 14px;
+  }
+
+  .user-profile-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .user-badge {
+    justify-content: center;
+  }
+
+  .btn-logout {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 360px) {
+  .logo-circle {
+    width: 36px;
+    height: 36px;
+  }
+}

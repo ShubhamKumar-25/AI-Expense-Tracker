@@ -1,0 +1,77 @@
+name: Expense Tracker AI CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # ==========================================
+  # 1. Backend Build & Syntax Check
+  # ==========================================
+  backend:
+    name: Test & Deploy Backend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install Backend Dependencies
+        run: npm ci
+
+      - name: Check Backend Syntax
+        run: node --check server.js
+
+      - name: Trigger Render Deploy
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          RENDER_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -n "$RENDER_HOOK" ]; then
+            curl -X POST "$RENDER_HOOK"
+          else
+            echo "RENDER_DEPLOY_HOOK is not set, skipping trigger."
+          fi
+
+  # ==========================================
+  # 2. Frontend Build Check
+  # ==========================================
+  frontend:
+    name: Test & Build Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        run: npm ci
+
+      - name: Build React App
+        run: npm run build
+        env:
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}

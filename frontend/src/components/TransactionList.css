@@ -1,0 +1,126 @@
+ .list-container {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  margin-top: 20px;
+}
+
+.transaction-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.t-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #0f172a;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.t-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-desc {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.t-cat {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.t-amount {
+  font-weight: bold;
+  color: var(--accent); 
+}
+  
+
+
+
+
+/* ---------- Tablets & small laptops ---------- */
+@media (max-width: 1024px) {
+  .list-container {
+    padding: 18px;
+  }
+}
+
+/* ---------- Tablets (portrait) ---------- */
+@media (max-width: 768px) {
+  .list-container {
+    padding: 16px;
+  }
+
+  .t-item {
+    padding: 10px 12px;
+  }
+
+  .t-desc {
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------- Mobile phones ---------- */
+@media (max-width: 480px) {
+  .list-container {
+    padding: 14px;
+    margin-top: 16px;
+  }
+
+  .transaction-items {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .t-item {
+    padding: 10px;
+    border-left-width: 3px;
+    gap: 8px;
+  }
+
+  .t-desc {
+    font-size: 0.9rem;
+  }
+
+  .t-cat {
+    font-size: 0.75rem;
+  }
+
+  .t-amount {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 360px) {
+  .t-item {
+    padding: 8px;
+    flex-wrap: wrap;
+  }
+
+  .t-info {
+    max-width: 65%;
+  }
+
+  .t-desc {
+    font-size: 0.85rem;
+    /* Lambi description ko truncate karo taaki amount ke saath fight na kare */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .t-amount {
+    font-size: 0.85rem;
+  }
+}

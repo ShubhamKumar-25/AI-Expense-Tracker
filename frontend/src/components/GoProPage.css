@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap");
+
+.gopro-page {
+  --gopro-gold: #eab308;
+  --gopro-gold-light: #fde68a;
+  --gopro-indigo: #6366f1;
+  --gopro-purple: #a855f7;
+  --gopro-card: var(--bg-card, #1e293b);
+  --gopro-border: #334155;
+  --gopro-muted: var(--text-muted, #94a3b8);
+
+  min-height: calc(100vh - 80px);
+  padding: 60px 20px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.gopro-container {
+  width: 100%;
+  max-width: 960px;
+}
+
+/* ---------- Hero ---------- */
+.gopro-hero {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: gopro-rise 0.6s ease both;
+}
+
+.gopro-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gopro-gold);
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.gopro-headline {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  color: #f8fafc;
+  margin: 0 0 16px;
+}
+
+.gopro-highlight {
+  background: linear-gradient(to right, var(--gopro-indigo), var(--gopro-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gopro-subtext {
+  font-size: 1.05rem;
+  color: var(--gopro-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- Grid ---------- */
+.gopro-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+  animation: gopro-rise 0.6s ease 0.1s both;
+}
+
+/* ---------- Pricing Card ---------- */
+.gopro-price-card {
+  background: var(--gopro-card);
+  border: 1px solid var(--gopro-border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gopro-price-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--gopro-gold), var(--gopro-indigo));
+}
+
+.gopro-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.gopro-price {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.gopro-price-period {
+  color: var(--gopro-muted);
+  font-size: 0.95rem;
+}
+
+.gopro-trial {
+  color: var(--gopro-gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 6px 0 24px;
+}
+
+.gopro-features {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gopro-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+.gopro-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(234, 179, 8, 0.15);
+  color: var(--gopro-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.gopro-cta {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: linear-gradient(to right, var(--gopro-gold-light), var(--gopro-gold));
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gopro-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(234, 179, 8, 0.5);
+}
+
+.gopro-cta:focus-visible {
+  outline: 2px solid var(--gopro-gold-light);
+  outline-offset: 3px;
+}
+
+.gopro-fineprint {
+  text-align: center;
+  color: var(--gopro-muted);
+  font-size: 0.78rem;
+  margin: 12px 0 0;
+}
+
+/* ---------- Preview Card (signature element) ---------- */
+.gopro-preview-card {
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.16), transparent 60%),
+    var(--gopro-card);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: gopro-glow 3.5s ease-in-out infinite;
+}
+
+.gopro-preview-tag {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gopro-indigo);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.gopro-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #f8fafc;
+  font-size: 0.95rem;
+}
+
+.gopro-preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gopro-purple);
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2);
+}
+
+.gopro-preview-text {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gopro-preview-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.15);
+  overflow: hidden;
+}
+
+.gopro-preview-fill {
+  height: 100%;
+  width: 78%;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--gopro-indigo), var(--gopro-purple));
+}
+
+.gopro-preview-caption {
+  color: var(--gopro-muted);
+  font-size: 0.78rem;
+}
+
+/* ---------- Trust row ---------- */
+.gopro-trust {
+  margin-top: 36px;
+  text-align: center;
+  color: var(--gopro-muted);
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gopro-dot {
+  color: #475569;
+}
+
+/* ---------- Motion ---------- */
+@keyframes gopro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gopro-glow {
+  0%,
+  100% {
+    border-color: rgba(99, 102, 241, 0.35);
+  }
+  50% {
+    border-color: rgba(168, 85, 247, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gopro-hero,
+  .gopro-grid,
+  .gopro-preview-card {
+    animation: none;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .gopro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+/* ---------- Tablets & small laptops ---------- */
+@media (max-width: 1024px) {
+  .gopro-page {
+    padding: 48px 20px 60px;
+  }
+}
+
+/* ---------- Tablets (portrait) — already has grid fix at 720px, adding spacing ---------- */
+@media (max-width: 720px) {
+  .gopro-page {
+    padding: 40px 16px 50px;
+  }
+
+  .gopro-hero {
+    margin-bottom: 36px;
+  }
+
+  .gopro-price-card,
+  .gopro-preview-card {
+    padding: 24px;
+  }
+}
+
+/* ---------- Mobile phones ---------- */
+@media (max-width: 480px) {
+  .gopro-page {
+    padding: 32px 14px 40px;
+  }
+
+  .gopro-subtext {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .gopro-price-card,
+  .gopro-preview-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .gopro-price {
+    font-size: 2.1rem;
+  }
+
+  .gopro-price-period {
+    font-size: 0.85rem;
+  }
+
+  .gopro-features li {
+    font-size: 0.88rem;
+  }
+
+  .gopro-cta {
+    padding: 13px 16px;
+    font-size: 0.95rem;
+  }
+
+  .gopro-preview-tag {
+    top: 14px;
+    right: 14px;
+    font-size: 0.62rem;
+    padding: 3px 8px;
+  }
+
+  .gopro-trust {
+    margin-top: 28px;
+    font-size: 0.78rem;
+    gap: 6px 10px;
+  }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 360px) {
+  .gopro-price-card,
+  .gopro-preview-card {
+    padding: 16px;
+  }
+
+  .gopro-price {
+    font-size: 1.8rem;
+  }
+
+  .gopro-eyebrow {
+    font-size: 0.68rem;
+    padding: 5px 12px;
+  }
+}
