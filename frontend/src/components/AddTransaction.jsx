@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import API from "../api/axios"; // 👈 Internal Axios Instance Import Kiya
+import API from "../api/axios"; // 👈 Internal Axios Instance Import
 import "./AddTransaction.css";
 
 const AddTransaction = ({ onTransactionAdded }) => {
@@ -14,7 +14,7 @@ const AddTransaction = ({ onTransactionAdded }) => {
     console.log("Sending Data:", formData);
 
     try {
-      // Direct API call - interceptor token khud attach kar dega
+      // Direct API call
       const res = await API.post("/transactions", formData);
 
       alert(

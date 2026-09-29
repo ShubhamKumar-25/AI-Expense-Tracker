@@ -6,7 +6,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  // SessionStorage se User Details aur Token fetch karo
   const token = sessionStorage.getItem("token");
   const user = JSON.parse(sessionStorage.getItem("user") || "null");
 
@@ -19,7 +18,6 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  // Link pe click karte hi menu close ho jaye (mobile pe)
   const closeMenu = () => setIsOpen(false);
 
   return (
@@ -30,7 +28,6 @@ const Navbar = () => {
           <img src="/logo.png" alt="AI Finance Logo" />
         </Link>
 
-        {/* Hamburger Button - sirf mobile pe dikhega (CSS se controlled) */}
         <button
           className={`nav-toggle ${isOpen ? "active" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
