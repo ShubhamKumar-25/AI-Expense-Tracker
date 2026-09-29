@@ -1,11 +1,11 @@
 const db = require('../config/db');
 const { categorizeTransaction } = require('../utils/aiHelper');
 
-// 1. Add New Transaction (Logged-in user ke liye)
+// 1. Add New Transaction 
 exports.addTransaction = async (req, res) => {
     try {
         let { description, amount, category } = req.body;
-        const userId = req.user.id; // Auth middleware se aayega
+        const userId = req.user.id; 
 
         // Force AI if category is Auto or empty
         if (category === "Auto" || !category) {
@@ -27,7 +27,7 @@ exports.addTransaction = async (req, res) => {
     }
 };
 
-// 2. Get Transactions (Sirf Logged-in user ke transactions fetch honge)
+// 2. Get Transactions
 exports.getTransactions = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -41,7 +41,7 @@ exports.getTransactions = async (req, res) => {
     }
 };
 
-// 3. Delete Transaction (Security check: Sirf apne account ka transaction delete ho sake)
+// 3. Delete Transaction 
 exports.deleteTransaction = async (req, res) => {
     try {
         const { id } = req.params;
