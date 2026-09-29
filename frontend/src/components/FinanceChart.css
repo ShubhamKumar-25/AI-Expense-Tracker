@@ -18,10 +18,10 @@
   height: 300px;
   min-height: 300px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
-
 
 @media (max-width: 1024px) {
   .chart-container {
@@ -80,7 +80,6 @@
 
 
 
-
 .chart-container {
   background: var(--bg-card);
   padding: 20px;
@@ -102,9 +101,6 @@
   height: 300px;
   min-height: 300px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ===== Tablets & small laptops ===== */
